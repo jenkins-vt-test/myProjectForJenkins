@@ -1,25 +1,12 @@
-Jenkinsfile (Declarative Pipeline)
-pipeline {
-    agent any
+node {
+        stage 'Checkout'
+                checkout scm
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
+        stage 'Build'
                 sh 'mkdir build && cd build && cmake ../'
-                sh 'make' 
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
+                sh 'make'
+
+        stage 'Test'
                 sh 'make test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
-    }
+
 }
