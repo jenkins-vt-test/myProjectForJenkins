@@ -4,6 +4,7 @@ project(project_for_jenkins VERSION 0.1)
 
 add_library(project_for_jenkins
     src/myA.cpp
+    src/myB.cpp
 )
 
 target_include_directories(project_for_jenkins PUBLIC
