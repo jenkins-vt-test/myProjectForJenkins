@@ -3,9 +3,6 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo env.GIT_BRANCH
-                echo env.GIT_REPO_URL
-                echo env.WORKSPACE
                 sh '''
                     rm -rf build
                     mkdir build
@@ -18,12 +15,13 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Testing..'
-                sh 'make test'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
+                steps {
+
+                    sh '''
+                        cd build
+                        make test
+                    '''
+                    }
             }
         }
     }
