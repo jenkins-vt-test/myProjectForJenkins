@@ -10,7 +10,7 @@ pipeline {
                     cmake ../
                     make
                 '''
-                }
+             }
         }
         stage('Test') {
             steps {
@@ -18,7 +18,6 @@ pipeline {
                     cd build
                     make test
                 '''
-                }
             }
         }
     }
