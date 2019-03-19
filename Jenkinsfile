@@ -3,8 +3,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo SCM
-                echo SCM
+                echo '$SCM'
                 echo env.GIT_BRANCH
                 echo env.GIT_REPO_URL
                 sh 'mkdir build'
