@@ -18,8 +18,6 @@ pipeline {
                     cd build
                     ctest --verbose --no-compress-output -T Test || /usr/bin/true
                 '''
-            }
-            steps {
                 junit 'build/Testing/**/Test.xml'
             }
         }
