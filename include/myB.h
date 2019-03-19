@@ -1,11 +1,11 @@
-#ifndef MYA_H
-#define MYA_H
+#ifndef MYB_H
+#define MYB_H
 
 
-class myA
+class myB
 {
 public:
-  myA();
+  myB();
 };
 
-#endif // MYA_H
+#endif // MYB_H

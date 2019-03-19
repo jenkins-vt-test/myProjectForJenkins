@@ -1,6 +1,6 @@
-#include "myA.h"
+#include "myB.h"
 
-myA::myA()
+myB::myB()
 {
 
 }
