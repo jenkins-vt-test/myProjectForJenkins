@@ -3,9 +3,9 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo '$SCM'
                 echo env.GIT_BRANCH
                 echo env.GIT_REPO_URL
+                echo '$SCM'
                 sh 'mkdir build'
                 sh 'cd build'
                 sh 'cmake ../'
