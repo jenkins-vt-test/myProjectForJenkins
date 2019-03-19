@@ -15,8 +15,8 @@ pipeline {
                     cmake ../
                     make
                 '''
-                }
                 echo '$SCM'
+                }
         }
         stage('Test') {
             steps {
