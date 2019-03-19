@@ -1,12 +1,24 @@
-node {
-        stage 'Checkout'
-                checkout scm
+pipeline {
+    agent none
 
-        stage 'Build'
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building..'
                 sh 'mkdir build && cd build && cmake ../'
                 sh 'make'
-
-        stage 'Test'
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing..'
                 sh 'make test'
-
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying....'
+            }
+        }
+    }
 }
