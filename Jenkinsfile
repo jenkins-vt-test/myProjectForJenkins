@@ -19,11 +19,9 @@ pipeline {
                     ctest --verbose --no-compress-output -T Test || /usr/bin/true
                 '''
             }
+            steps {
+                junit 'build/Testing/**/Test.xml'
+            }
         }
-    }
-    post {
-      always {
-         junit 'build/Testing/**/Test.xml'
-      }
     }
 }
