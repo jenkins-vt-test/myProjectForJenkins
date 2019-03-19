@@ -7,15 +7,14 @@ pipeline {
                 echo env.GIT_REPO_URL
                 echo env.WORKSPACE
                 sh '''
-                    branchPath=$(ls | grep env.GIT_BRANCH)
+                    branchPath=$(basename $env.WORKSPACE)
                     echo '$branchPath'
-                    cd branchPath
+                    cd $branchPath
                     mkdir build
                     cd build
                     cmake ../
                     make
                 '''
-                echo '$SCM'
                 }
         }
         stage('Test') {
