@@ -16,9 +16,14 @@ pipeline {
             steps {
                 sh '''
                     cd build
-                    make test
+                    ctest --verbose --no-compress-output -T Test || /usr/bin/true
                 '''
             }
+        }
+        post {
+          always {
+             junit 'build/**/*.xml'
+          }
         }
     }
 }
