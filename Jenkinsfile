@@ -7,6 +7,7 @@ pipeline {
                 echo env.GIT_REPO_URL
                 echo env.WORKSPACE
                 sh '''
+                    rm -rf build
                     mkdir build
                     cd build
                     cmake ../
