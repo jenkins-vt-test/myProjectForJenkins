@@ -5,12 +5,18 @@ pipeline {
             steps {
                 echo env.GIT_BRANCH
                 echo env.GIT_REPO_URL
+                echo env.WORKSPACE
+                sh '''
+                    branchPath=ls | grep env.GIT_BRANCH
+                    echo branchPath
+                    cd branchPath
+                    mkdir build
+                    cd build
+                    cmake ../
+                    make
+                '''
+                }
                 echo '$SCM'
-                sh 'mkdir build'
-                sh 'cd build'
-                sh 'cmake ../'
-                sh 'make'
-            }
         }
         stage('Test') {
             steps {
