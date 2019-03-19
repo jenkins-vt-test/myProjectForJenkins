@@ -7,7 +7,7 @@ pipeline {
                 echo env.GIT_REPO_URL
                 echo env.WORKSPACE
                 sh '''
-                    branchPath=$(basename $env.WORKSPACE)
+                    branchPath=$(basename env.WORKSPACE)
                     echo '$branchPath'
                     cd $branchPath
                     mkdir build
