@@ -14,14 +14,11 @@ pipeline {
         }
         stage('Test') {
             steps {
-                echo 'Testing..'
-                steps {
-
-                    sh '''
-                        cd build
-                        make test
-                    '''
-                    }
+                sh '''
+                    cd build
+                    make test
+                '''
+                }
             }
         }
     }
