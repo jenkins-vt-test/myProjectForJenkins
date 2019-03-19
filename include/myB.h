@@ -6,6 +6,9 @@ class myB
 {
 public:
   myB();
+
+private:
+  int b;
 };
 
 #endif // MYB_H

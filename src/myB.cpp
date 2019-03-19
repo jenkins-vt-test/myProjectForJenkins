@@ -1,6 +1,6 @@
 #include "myB.h"
 
-myB::myB()
+myB::myB() : b(0)
 {
 
 }
