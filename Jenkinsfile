@@ -19,9 +19,15 @@ pipeline {
                     ctest --verbose --no-compress-output -T Test || /usr/bin/true
                 '''
                 xunit([CTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'build/Testing/**/Test.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
-                pullRequest.comment('This pullrequest is ok')
             }
         }
     }
-
+    Post {
+        success {
+            pullRequest.comment('This pullrequest is ok')
+        }
+        failure {
+            pullRequest.comment('This pullrequest is not ok')
+        }
+    }
 }
