@@ -20,9 +20,9 @@ pipeline {
                 '''
                 xunit([CTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'build/Testing/**/Test.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
             }
-            script {
-              pullRequest.comment('This pullrequest is ok from step')
-            }
+        }
+        script {
+          pullRequest.comment('This pullrequest is ok from step')
         }
     }
     post {
