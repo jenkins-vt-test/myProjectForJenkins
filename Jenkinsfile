@@ -12,6 +12,7 @@ pipeline {
         printPostContent: true
        )
     }
+
     stages {
         stage('build') {
             steps {
