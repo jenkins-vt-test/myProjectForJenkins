@@ -25,7 +25,7 @@ pipeline {
     }
     post {
         success {
-        step{
+        steps{
         env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
         echo env.GIT_COMMIT
           def repository_url = scm.userRemoteConfigs[0].url
