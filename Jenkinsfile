@@ -22,7 +22,7 @@ pipeline {
             }
         }
     }
-    Post {
+    post {
         success {
             pullRequest.comment('This pullrequest is ok')
         }
