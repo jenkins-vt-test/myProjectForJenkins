@@ -24,7 +24,7 @@ pipeline {
         }
     }
     post {
-        sucess {
+        success {
         step{
         env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
         echo env.GIT_COMMIT
