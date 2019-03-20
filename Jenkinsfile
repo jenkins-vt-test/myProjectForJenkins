@@ -26,16 +26,4 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            script {
-              pullRequest.comment('This pullrequest is ok')
-            }
-        }
-        failure {
-            script {
-              pullRequest.comment('This pullrequest is not ok')
-            }
-        }
-    }
 }
