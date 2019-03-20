@@ -4,6 +4,7 @@ project(project_for_jenkins VERSION 0.1)
 
 add_library(project_for_jenkins
     src/myA.cpp
+    src/myB.cpp
 )
 
 target_include_directories(project_for_jenkins PUBLIC
@@ -21,10 +22,17 @@ install(DIRECTORY include/ DESTINATION ${CMAKE_PREFIX_PATH}/include)
 enable_testing()
 
 # Every library has unit tests, of course
-add_executable(testproject_for_jenkins
+add_executable(testproject_for_jenkinsA
     tests/testMyA.cpp)
 
-target_link_libraries(testproject_for_jenkins
+add_executable(testproject_for_jenkinsB
+    tests/testMyB.cpp)
+
+target_link_libraries(testproject_for_jenkinsA
     project_for_jenkins)
 
-add_test(testproject_for_jenkins testproject_for_jenkins)
+target_link_libraries(testproject_for_jenkinsB
+    project_for_jenkins)
+
+add_test(testproject_for_jenkinsA testproject_for_jenkinsA)
+add_test(testproject_for_jenkinsB testproject_for_jenkinsB)
