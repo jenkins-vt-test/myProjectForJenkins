@@ -10,7 +10,7 @@ public:
 private:
   std::string name_;
   double a_;
-  int count_;
+  int count_
 };
 
 #endif // MYA_H
