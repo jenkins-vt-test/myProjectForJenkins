@@ -9,6 +9,7 @@ public:
 
 private:
   std::string name_;
+  double a;
 };
 
 #endif // MYA_H
