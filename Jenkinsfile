@@ -3,6 +3,7 @@ pipeline {
     triggers {
             cron('1 * * * *')
     }
+
     stages {
         stage('build') {
             steps {
