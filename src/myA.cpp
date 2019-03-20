@@ -1,6 +1,6 @@
 #include "myA.h"
 
-myA::myA() : name_("myName2")
+myA::myA() : name_("myName")
 {
 
 }
