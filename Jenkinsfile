@@ -21,7 +21,9 @@ pipeline {
                 xunit([CTest(deleteOutputFiles: true, failIfNotNew: true, pattern: 'build/Testing/**/Test.xml', skipNoTestFiles: false, stopProcessingIfError: true)])
 
                 script {
-                  pullRequest.comment('This pullrequest is ok from step')
+                  env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
+                  echo env.GIT_COMMIT
+                  env.GIT_COMMIT.comment('This pullrequest is ok from step')
                 }
             }
         }
