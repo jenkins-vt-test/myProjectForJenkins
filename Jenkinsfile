@@ -34,7 +34,7 @@ pipeline {
                 echo env.GIT_COMMIT
                 repository_name = repository_url.replace("git@github.com:","").replace(".git","")
                 withCredentials([usernamePassword(credentialsId: 'd17d7c30-12bf-44d2-88f8-e9f3814e43f2', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-                    sh "curl -u $USER:$PASSWORD -X POST -d '{\"body\": \"Ok for the commit\"}' \"https://api.github.com/repos/${repository_name}/issues/${ghprbPullId}/comments\""
+                    sh "curl -u $USER:$PASSWORD -X POST -d '{\"body\": \"Ok for the commit\"}' \"https://api.github.com/repos/${repository_name}/issues/env.GIT_COMMIT/comments\""
             }
          }
         }
