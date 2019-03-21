@@ -7,6 +7,7 @@ pipeline {
         stage('build') {
             steps {
                 sh '''
+                    printenv
                     rm -rf build
                     mkdir build
                     cd build
