@@ -30,10 +30,10 @@ pipeline {
                 echo env.GIT_COMMIT
                 echo env.GIT_URL
                 repository_url=env.GIT_URL
-                repository_commit=env.GIT_COMMIT
+                repository_commit_id=env.GIT_COMMIT
                 repository_name=repository_url.replace("https://github.com/","").replace("git@github.com:","").replace(".git","")
                 withCredentials([usernamePassword(credentialsId: 'd17d7c30-12bf-44d2-88f8-e9f3814e43f2', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-                    sh "curl -u $USER:$PASSWORD -X POST -d '{\"body\": \"Ok for the commit\"}' \"https://api.github.com/repos/${repository_name}/issues/${repository_commit}/comments\""
+                    sh "curl -u $USER:$PASSWORD -X POST -d '{\"body\": \"Ok for the commit\", \"commit_id\": \"${repository_commit_id}\"' \"https://api.github.com/repos/${repository_name}/pull/1/comments\""
             }
          }
         }
