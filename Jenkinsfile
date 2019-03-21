@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+            repository_url = "scm.userRemoteConfigs[0].url"
+    }
     stages {
         stage('build') {
             steps {
@@ -24,6 +26,5 @@ pipeline {
             }
         }
     }
-
 
 }
