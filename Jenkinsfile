@@ -26,7 +26,6 @@ pipeline {
             }
         }
     }
-
     post {
         success {
             script {
