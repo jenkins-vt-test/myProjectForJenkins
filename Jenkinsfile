@@ -1,5 +1,9 @@
 pipeline {
     agent any
+    parameters {
+            string(name: 'payload', defaultValue: '', description: '')
+
+    }
     options { [[$class: 'ParametersDefinitionProperty', parameterDefinitions: [[$class: 'StringParameterDefinition', defaultValue: '', description: '', name: 'payload']]]] }
     stages {
         stage('build') {
