@@ -6,9 +6,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                println Hudson.instance.getItem(env.JOB_NAME).definition.scm.userRemoteConfigs[0].url
                 sh '''
-                    printenv
+                    println Hudson.instance.getItem(env.JOB_NAME).definition.scm.userRemoteConfigs[0].url
                     rm -rf build
                     mkdir build
                     cd build
