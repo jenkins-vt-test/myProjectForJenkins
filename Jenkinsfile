@@ -1,13 +1,9 @@
 pipeline {
     agent any
-    environment {
-            repository_url = "scm.userRemoteConfigs[0].url"
-    }
     stages {
         stage('build') {
             steps {
                 sh '''
-                    echo scm.userRemoteConfigs[0].url
                     rm -rf build
                     mkdir build
                     cd build
@@ -32,7 +28,10 @@ pipeline {
             script {
                 env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
                 echo env.GIT_COMMIT
-                repository_name = repository_url.replace("git@github.com:","").replace(".git","")
+                echo env.GIT_URL
+                repository_url=env.GIT_URL
+                repository_name = env.GIT_URL.replace(https://github.com/,"").replace("git@github.com:","").replace(".git","")
+                echo ${repository_name}
                 withCredentials([usernamePassword(credentialsId: 'd17d7c30-12bf-44d2-88f8-e9f3814e43f2', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
                     sh "curl -u $USER:$PASSWORD -X POST -d '{\"body\": \"Ok for the commit\"}' \"https://api.github.com/repos/${repository_name}/issues/env.GIT_COMMIT/comments\""
             }
