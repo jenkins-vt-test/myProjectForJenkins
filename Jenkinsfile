@@ -26,7 +26,7 @@ pipeline {
         }
     }
     post {
-        faliure {
+        failure {
             script {
                 if(env.CHANGE_ID) {
                     env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
