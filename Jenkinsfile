@@ -33,10 +33,8 @@ pipeline {
                     repository_url=env.GIT_URL
                     repository_commit_id=env.CHANGE_ID
                     repository_name=repository_url.replace("https://github.com/","").replace("git@github.com:","").replace(".git","")
-                    resultemp=currentBuild.currentResult
-                    echo "Result is: ${resultemp}"
                     withCredentials([usernamePassword(credentialsId: 'd17d7c30-12bf-44d2-88f8-e9f3814e43f2', usernameVariable: 'USER', passwordVariable: 'PASSWORD')]) {
-                        if(currentBuild.currentResult == "SUCCES") {
+                        if(currentBuild.currentResult == "SUCCESS") {
                             sh "curl -u $USER:$PASSWORD -X POST -d '{\"body\": \"Jenkins approves this commit.\", \"event\": \"APPROVE\"}' \"https://api.github.com/repos/${repository_name}/pulls/${repository_commit_id}/reviews\""
                         } else {
                             sh "curl -u $USER:$PASSWORD -X POST -d '{\"body\": \"Jenkins does not approves this commit.\", \"event\": \"REQUEST_CHANGES\"}' \"https://api.github.com/repos/${repository_name}/pulls/${repository_commit_id}/reviews\""
