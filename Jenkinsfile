@@ -30,7 +30,6 @@ pipeline {
             script {
                 env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
                 echo env.GIT_COMMIT
-
                 echo env.GIT_URL
                 repository_url=env.GIT_URL
                 repository_commit_id=env.CHANGE_ID
