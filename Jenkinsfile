@@ -1,9 +1,10 @@
 pipeline {
     agent any
     parameters {
-            string(name: 'payload', defaultValue: '', description: '')
+            string(name: 'payload', defaultValue: 'df', description: '')
 
     }
+
     stages {
         stage('build') {
             steps {
