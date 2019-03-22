@@ -33,6 +33,8 @@ pipeline {
             script {
                 env.GIT_COMMIT = sh(script: "git rev-parse HEAD", returnStdout: true).trim()
                 echo env.GIT_COMMIT
+                repository_pr_id=sh(script: "git log --ancestry-path --oneline XXXXXXX..master | grep 'pull request' | tail -n1 | awk '{ print $5 }').trim()
+                echo ${repository_pr_id}
                 echo env.GIT_URL
                 repository_url=env.GIT_URL
                 repository_commit_id=env.GIT_COMMIT
