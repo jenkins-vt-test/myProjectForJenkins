@@ -7,8 +7,8 @@ pipeline {
     stages {
         stage('build') {
             steps {
+                echo "${params.payload} The payload is "
                 sh '''
-                    echo "the build worked! The payload is ${params.payload}"
                     rm -rf build
                     mkdir build
                     cd build
