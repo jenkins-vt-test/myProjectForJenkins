@@ -1,7 +1,4 @@
-
 cmake_minimum_required(VERSION 3.10)
-
-
 
 project(project_for_jenkins VERSION 0.1)
 
