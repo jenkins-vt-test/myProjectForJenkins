@@ -1,0 +1,12 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/jenkins-vt-test/myProjectForJenkins.git
+	branch = develop
+	commit = 085dffaac3d8b611efa4fce94fbb4a4447fd90c6
+	parent = 2a4e6b1245267b23df01d7257f4e870d62c384b5
+	method = merge
+	cmdver = 0.4.0
